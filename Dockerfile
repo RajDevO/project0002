@@ -7,5 +7,5 @@ CMD ["/usr/sbin/apache2ctl","-D","FOREGROUND"]
 WORKDIR /var/www/html
 VOLUME /var/log/apache2
 EXPOSE 80
-ADD target ./ /var/www/html
-COPY target ./ /var/www/html
+ADD target ./* /var/www/html/
+COPY target ./* /var/www/html/
