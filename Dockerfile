@@ -1,4 +1,4 @@
-FROM ubuntu:latest-jre8
+FROM ubuntu:latest
 LABEL "author"="Rajesh"
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install git -y
