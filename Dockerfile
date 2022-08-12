@@ -1,4 +1,4 @@
-FROM ubuntu:latest-tomcat:8.5.47-jdk8-openjdk
+FROM ubuntu:latest
 LABEL "author"="Rajesh"
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install git -y
