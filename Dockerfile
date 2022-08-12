@@ -7,5 +7,5 @@ CMD ["/usr/sbin/apache2ctl","-D","FOREGROUND"]
 WORKDIR /var/www/html
 VOLUME /var/log/apache2
 EXPOSE 80
-ADD target/bookstore-example-1.0-SNAPSHOT.war /var/www/html
+ADD target . /var/www/html
 #COPY /var/lib/jenkins/workspace/project0002/target/bookstore-example-1.0-SNAPSHOT.war /var/www/html
