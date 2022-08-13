@@ -24,15 +24,4 @@ spec:
         - containerPort: 80
           protocol: TCP
 status: {}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: webapp
-spec:
-  type: LoadBalancer
-  ports:
-    - port: 80
-      targetPort: 8080
-  selector:
-    app: webapp
+
