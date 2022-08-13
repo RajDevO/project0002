@@ -18,5 +18,7 @@ spec:
       - name: webapp
         image: {{ .Values.appimage }}
         ports:
-        - name: vproapp-port
-          containerPort: 8080
+        - containerPort: 8080
+        protocol: TCP
+status: {}
+          
