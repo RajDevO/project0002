@@ -1,8 +1,9 @@
-FROM tomcat:jdk11-openjdk-slim-buster
+FROM tomcat:8.0-alpine
 
 LABEL "author"="Rajesh"
 
-COPY target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
+ADD target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
 
-CMD ["catalina.sh", "run"]
+EXPOSE 8080
 
+CMD [“catalina.sh”, “run”]
