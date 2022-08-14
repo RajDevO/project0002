@@ -1,11 +1,8 @@
-FROM ubuntu:latest
+FROM tomcat:jdk11-openjdk-slim-buster
+
 LABEL "author"="Rajesh"
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt update && apt install git -y
-RUN apt install apache2 -y
-CMD ["/usr/sbin/apache2ctl","-D","FOREGROUND"]
-WORKDIR /var/www/html
-VOLUME /var/log/apache2
-EXPOSE 80
-ADD target ./* /var/www/html/
-COPY target ./* /var/www/html/
+
+COPY target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
+
+CMD ["catalina.sh", "run"]
+
