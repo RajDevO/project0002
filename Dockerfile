@@ -1,4 +1,4 @@
-FROM tomcat:8.5.5-jre11
+FROM tomcat:8-jre11
 
 LABEL maintainer="Rajesh"
 
