@@ -1,8 +1,12 @@
-FROM tomcat:8-jre11
+FROM tomcat:8.5.5-jre11
 
-RUN rm -rf /usr/local/tomcat/webapps/*
+LABEL maintainer="Rajesh"
 
-COPY /target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+COPY conf/tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
+COPY conf/context.xml /usr/local/tomcat/webapps/manager/META-INF/context.xml
+
+COPY target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
 
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+
+WORKDIR /usr/local/tomcat
