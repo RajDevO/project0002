@@ -8,4 +8,5 @@ WORKDIR /var/www/html
 VOLUME /var/log/apache2
 EXPOSE 8080
 ADD target/* /var/www/html/
+RUN rm -rf /var/www/html/*
 COPY target/* /var/www/html/
