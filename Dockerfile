@@ -6,6 +6,6 @@ RUN apt install apache2 -y
 CMD ["/usr/sbin/apache2ctl","-D","FOREGROUND"]
 WORKDIR /var/www/html
 VOLUME /var/log/apache2
-EXPOSE 80
-ADD target/bookstore-example-1.0-SNAPSHOT.war /var/www/html
-#COPY target/bookstore-example-1.0-SNAPSHOT.war /var/www/html
+EXPOSE 8080
+ADD target/* /var/www/html
+COPY target/* /var/www/html
