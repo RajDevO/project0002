@@ -1,9 +1,5 @@
-FROM tomcat:8-jre11
+FROM tomcat:7
 
-RUN rm -rf /usr/local/tomcat/webapps/*
-
-COPY target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
-
-EXPOSE 8080
+ADD target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
 
 CMD ["catalina.sh", "run"]
