@@ -1,12 +1,9 @@
-FROM ubuntu:latest
-LABEL "author"="Rajesh"
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt update && apt install git -y
-RUN apt install apache2 -y
-RUN rm -rf /var/lib/docker
-CMD ["/usr/sbin/apache2ctl","-D","FOREGROUND"]
-WORKDIR /var/www/html
-VOLUME /var/log/apache2
+FROM tomcat:8-jre11
+
+RUN rm -rf /usr/local/tomcat/webapps/*
+
+COPY target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+
 EXPOSE 8080
-ADD target/* /var/www/html/
-#COPY target/* /var/www/html/
+
+CMD ["catalina.sh", "run"]
