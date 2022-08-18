@@ -1,6 +1,5 @@
 FROM tomcat:latest
 ENTRYPOINT /usr/local/tomcat
-RUN chmod -R 777 tomcat
 RUN cd /webapps.dist
 RUN ls
 RUN cp -R * ../webapps
