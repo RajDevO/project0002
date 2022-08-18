@@ -1,8 +1,5 @@
 FROM tomcat:latest
 ENTRYPOINT /usr/local/tomcat
-RUN cd /webapps.dist
-RUN ls
-RUN cp -R * ../webapps
 USER root
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY ./target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
