@@ -2,10 +2,13 @@ FROM centos
 
 MAINTAINER Rajesh
 
+RUN yum -y update && \
+    yum -y install wget && \
+    yum install -y tar.x86_64 && \
+    yum clean all
 
 RUN mkdir /opt/tomcat/
-RUN yum install -y unzip-6.0-1.el6.x86_64.rpm
-RUN rm unzip-6.0-1.el6.x86_64.rpm
+
 WORKDIR /opt/tomcat
 
 RUN curl -O https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.40/bin/apache-tomcat-8.5.40.tar.gz
