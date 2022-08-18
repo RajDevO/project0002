@@ -2,6 +2,10 @@ FROM centos
 
 MAINTAINER Rajesh
 
+RUN curl -OL ftp://fr2.rpmfind.net/linux/centos/6.6/os/x86_64/Packages/unzip-6.0-1.el6.x86_64.rpm
+RUN yum install -y unzip-6.0-1.el6.x86_64.rpm
+RUN rm unzip-6.0-1.el6.x86_64.rpm
+
 RUN mkdir /opt/tomcat/
 
 WORKDIR /opt/tomcat
