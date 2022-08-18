@@ -1,7 +1,12 @@
-FROM tomcat:8.0.51-jre8-alpine
+FROM tomcat:latest-jre8-alpine
+ENTRYPOINT /usr/local/tomcat
+RUN chmod -R 777 tomcat
+RUN cd /webapps.dist
+RUN ls
+RUN cp -R * ../webapps
 USER root
 RUN rm -rf /usr/local/tomcat/webapps/*
-COPY ./target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+COPY ./target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
 CMD ["catalina.sh","run"]
 
 
