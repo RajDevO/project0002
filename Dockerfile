@@ -10,6 +10,6 @@ RUN tar xzvf apache-tomcat-9.0.65.tar.gz -C /opt/tomcat
 RUN mv apache-tomcat-9.0.65/* /opt/tomcat/.
 RUN java -version
 WORKDIR /opt/tomcat/webapps
-ADD target/* /opt/tomcat/webapps
+ADD target/* /opt/tomcat/webapps/
 EXPOSE 80
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
