@@ -1,25 +1,15 @@
-FROM centos:6
-
+FROM ubuntu:latest
 MAINTAINER Rajesh
-
-RUN yum -y update && \
-    yum -y install wget && \
-    yum install -y tar.x86_64 && \
-    yum clean all
-
+RUN apt-get update && apt-get install -y && apt-get install -y wget && apt-get install openjdk-8-jdk -y && rm -rf /var/lib/apt/lists/*
+RUN apt-get install tar
 RUN mkdir /opt/tomcat/
-
 WORKDIR /opt/tomcat
-
-RUN curl -O https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.40/bin/apache-tomcat-8.5.40.tar.gz
-RUN tar xvzf apache*.tar.gz
-RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
-RUN yum -y install java
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz
+RUN ls -l
+RUN tar xzvf apache-tomcat-9.0.65.tar.gz -C /opt/tomcat
+RUN mv apache-tomcat-9.0.65/* /opt/tomcat/.
 RUN java -version
-
 WORKDIR /opt/tomcat/webapps
-RUN target/bookstore-example-1.0-SNAPSHOT.war /opt/tomcat/webapps
-
-EXPOSE 8080
-
+ADD target/*
+EXPOSE 80
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
