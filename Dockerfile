@@ -5,5 +5,5 @@ RUN apt-get update && \
     apt-get -y install default-jre-headless && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-ADD target/* /var/lib/jetty/webapps/ROOT.war
+ADD target/* /var/lib/jetty/webapps/
 CMD ["mvn jetty:run -Pproduction"]
