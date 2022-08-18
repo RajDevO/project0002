@@ -1,5 +1,9 @@
-FROM jetty:9.3-jre8
-ADD target/bookstore-example-1.0-SNAPSHOT.war /opt
-COPY target/bookstore-example-1.0-SNAPSHOT.war /var/lib/jetty/webapps/ROOT.war
+FROM ubuntu:latest
+LABEL "author"="Rajesh"
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get -y install default-jre-headless && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+ADD project002/* /var/lib/jetty/webapps/ROOT.war
 CMD ["mvn jetty:run -Pproduction"]
-     
