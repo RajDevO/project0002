@@ -1,4 +1,6 @@
 FROM tomcat:8.0.51
+WORKDIR /usr/local/tomcat/webapps/
+VOLUME /var/log/tomcat
 ADD target/* /usr/local/tomcat/webapps/
 CMD ["catalina.sh","run"]
 
