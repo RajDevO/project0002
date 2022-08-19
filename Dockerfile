@@ -1,4 +1,4 @@
-FROM tomcat:latest
+FROM tomcat:8.0.51
 WORKDIR /usr/local/tomcat/webapps
 ADD tomcat-users.xml /usr/local/tomcat/conf/
 VOLUME /var/log/tomcat
