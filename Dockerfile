@@ -1,5 +1,6 @@
-FROM tomcat:8.0.51
+FROM tomcat:8-jre11
 WORKDIR /usr/local/tomcat/webapps
+ADD context.xml /usr/local/tomcat/webapps/manager/META-INF/context.xml
 ADD tomcat-users.xml /usr/local/tomcat/conf/
 VOLUME /var/log/tomcat
 ADD target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps
