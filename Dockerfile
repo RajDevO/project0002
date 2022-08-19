@@ -1,5 +1,5 @@
 FROM tomcat:8.0.51-jre11
-WORKDIR /usr/local/tomcat/
+WORKDIR /usr/local/tomcat/webapps
 ADD tomcat-users.xml /usr/local/tomcat/conf/
 VOLUME /var/log/tomcat
 ADD target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps
