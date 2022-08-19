@@ -1,5 +1,5 @@
 FROM tomcat:8.0.51-jre8-alpine
-ADD target/bookstore-example-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT
+ADD target/* /usr/local/tomcat/webapps/ROOT
 CMD ["catalina.sh","run"]
 
 
