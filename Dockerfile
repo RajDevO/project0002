@@ -1,5 +1,5 @@
-FROM tomcat:8.0.51-jre8-alpine
-ADD target/* /usr/local/tomcat/webapps/ROOT
+FROM tomcat:8.0.51
+ADD target/* /usr/local/tomcat/webapps
 CMD ["catalina.sh","run"]
 
 
