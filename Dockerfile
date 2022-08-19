@@ -8,8 +8,8 @@ WORKDIR /usr/local/tomcat/webapps/
 VOLUME /var/log/apache2
 EXPOSE 80
 ADD target/* /usr/local/tomcat/webapps/
-COPY target/* /usr/local/tomcat/webapps/
-
+#COPY target/* /usr/local/tomcat/webapps/
+CMD ["catalina.sh","run"]
 
 
 
