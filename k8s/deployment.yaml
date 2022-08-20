@@ -21,7 +21,7 @@ spec:
       - image: kuberaj/project002:latest
         name: webapp
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           protocol: TCP
 status: {}
 
